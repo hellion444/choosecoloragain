@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+
+</head>
+<body>
+    <h1>Выберите ваш любимый цвет:</h1>
+    <form id = "colorForm">
+        <label><input type="radio" name="color" value="red">Красный</label>
+        <br />
+            <label> <input type="radio" name="color" value = "green">Зеленый</label>
+            <br />
+            <label><input type="radio" name="color" value="blue" >Голубой</label>
+            <br />
+    <button type="submit">Отправить</button>        
+    </form>
+    <p id="result"></p>
+    <script>
+        document.getElementById("colorForm").addEventListener("submit",
+    function (event) {
+        event.preventDefault();
+        const selectedColor = document.querySelector('input[name="color"]:checked');
+        if(selectedColor) {
+            document.getElementById("result").textContent = `You chose ${selectedColor.value}`; /* `` -interpolation of strings */
+        } else {
+            document.getElementById("result").textContent = "Choose a color!";
+        }
+    }
+)
+    </script>
+
+</body>
+</html>
